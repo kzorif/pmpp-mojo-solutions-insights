@@ -14,6 +14,7 @@ preferred-dark-theme = "coal"
 fold.enable = true
 git-repository-url = "https://github.com/kzorif/pmpp-mojo-solutions-insights"
 edit-url-template = "https://github.com/kzorif/pmpp-mojo-solutions-insights/edit/main/{path}"
+additional-css = ["./mdbook-admonish.css"]
 
 [output.html.playground]
 editable = true
@@ -24,6 +25,8 @@ editable = true
 [preprocessor.checklist]
 [preprocessor.open-on-gh]
 [preprocessor.admonish]
+command = "mdbook-admonish"
+assets_version = "3.1.0" # do not edit: managed by `mdbook-admonish install`
 [preprocessor.graphviz]
 [preprocessor.svgbob]
 
