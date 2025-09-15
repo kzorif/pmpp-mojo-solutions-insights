@@ -22,7 +22,6 @@ editable = true
 [preprocessor.mermaid]
 [preprocessor.toc]
 [preprocessor.checklist]
-[preprocessor.multilang]
 [preprocessor.open-on-gh]
 [preprocessor.admonish]
 [preprocessor.graphviz]

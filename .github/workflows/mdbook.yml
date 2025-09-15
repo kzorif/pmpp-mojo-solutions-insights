@@ -38,7 +38,6 @@ jobs:
           cargo install mdbook-mermaid
           cargo install mdbook-toc
           cargo install mdbook-checklist
-          cargo install mdbook-multilang
           cargo install mdbook-open-on-gh
           cargo install mdbook-admonish
           cargo install mdbook-graphviz
