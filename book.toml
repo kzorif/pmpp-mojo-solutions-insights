@@ -1,0 +1,5 @@
+[book]
+authors = ["firoz57"]
+language = "en"
+src = "src"
+title = "Programming Massively Parallel Processors in Mojo: Solutions & Insights"
