@@ -3,3 +3,31 @@ authors = ["firoz57"]
 language = "en"
 src = "src"
 title = "Programming Massively Parallel Processors in Mojo: Solutions & Insights"
+
+
+[build]
+build-dir = "book"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "coal"
+fold.enable = true
+git-repository-url = "https://github.com/kzorif/pmpp-mojo-solutions-insights"
+edit-url-template = "https://github.com/kzorif/pmpp-mojo-solutions-insights/edit/main/{path}"
+
+[output.html.playground]
+editable = true
+
+[preprocessor.katex]
+[preprocessor.mermaid]
+[preprocessor.toc]
+[preprocessor.checklist]
+[preprocessor.multilang]
+[preprocessor.open-on-gh]
+[preprocessor.admonish]
+[preprocessor.graphviz]
+[preprocessor.svgbob]
+
+[output.linkcheck]
+[output.section-validator]
+[output.check-missing-md]
