@@ -1,7 +1,3 @@
-# Sample workflow for building and deploying a mdBook site to GitHub Pages
-#
-# To get started with mdBook see: https://rust-lang.github.io/mdBook/index.html
-#
 name: Deploy mdBook site to Pages
 
 on:
@@ -18,8 +14,7 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Allow only one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -32,16 +27,35 @@ jobs:
       MDBOOK_VERSION: 0.4.36
     steps:
       - uses: actions/checkout@v4
-      - name: Install mdBook
+
+      - name: Install Rust and mdBook + plugins
         run: |
-          curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+          export PATH="$HOME/.cargo/bin:$PATH"
           rustup update
           cargo install --version ${MDBOOK_VERSION} mdbook
+          cargo install mdbook-katex
+          cargo install mdbook-mermaid
+          cargo install mdbook-toc
+          cargo install mdbook-checklist
+          cargo install mdbook-multilang
+          cargo install mdbook-open-on-gh
+          cargo install mdbook-admonish
+          cargo install mdbook-graphviz
+          cargo install mdbook-svgbob
+          cargo install mdbook-linkcheck
+          cargo install mdbook-section-validator
+          cargo install mdbook-check-missing-md
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+
       - name: Build with mdBook
-        run: mdbook build
+        run: |
+          export PATH="$HOME/.cargo/bin:$PATH"
+          mdbook build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
