@@ -53,6 +53,9 @@ jobs:
         run: |
           export PATH="$HOME/.cargo/bin:$PATH"
           mdbook build
+          # Move html output to root so GitHub Pages finds index.html
+          mv book/html/* book/
+          rm -rf book/html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
